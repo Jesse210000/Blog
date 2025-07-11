@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: blogdb
+    volumes:
+      - blog_data:/var/lib/postgresql/data
+      - ./src/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DB_USER: root
+      DB_PASSWORD: mypass
+      DB_NAME: blogdb
+      DB_HOST: db
+    volumes:
+      - ./src:/app
+    working_dir: /app
+    command: npx ts-node server.ts
+
+volumes:
+  blog_data:

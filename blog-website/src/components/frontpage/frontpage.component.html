@@ -1,1 +1,41 @@
-<h1>{{ title }}</h1>
+<section class="hero">
+  <div class="intro">
+    <h1>
+      Welcome to My <span class="gradient">Digital Garden</span>
+    </h1>
+    <p>
+      A place where I share thoughts about web development, design, and the
+      ever-evolving tech landscape. Join me on this journey of continuous
+      learning and growth.
+    </p>
+    <div class="actions">
+      <button class="btn primary">Explore Articles</button>
+      <button class="btn secondary">Learn About Me</button>
+    </div>
+  </div>
+</section>
+
+<section class="featured">
+  <div class="header">
+    <h2>Featured Articles</h2>
+    <a href="/blog" class="view-all">View all →</a>
+  </div>
+
+  <div class="articles">
+    @for (post of blogs$ | async; track post.slug) {
+      <article class="card">
+        <img [src]="post.imageUrl || 'assets/placeholder.jpg'" alt="{{ post.title }}" />
+        <div class="meta">
+          <span class="date">{{ post.date }}</span>
+          <span class="read-time">{{ post.readTime || '5 min read' }}</span>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.summary || (post.content | slice:0:100) + '...' }}</p>
+        <div class="tags">
+            <span class="tag">tag</span>
+
+        </div>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<div class="header">
+  <h2>Featured Articles</h2>
+  <a routerLink="/blog" class="view-all">View all →</a>
+</div>
+
+<div class="articles">
+  @for (post of blogs$ | async; track post.slug) {
+    <article class="card">
+      <img [src]="post.imageUrl" alt="{{ post.title }}" />
+      <div class="meta">
+        <span class="date">{{ post.date }}</span>
+        <span class="read-time">{{ post.readTime ?? '6 min read' }}</span>
+      </div>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.summary ?? (post.content | slice:0:100) + '...' }}</p>
+      <div class="tags">
+          <span class="tag">placeholder tag</span>
+      </div>
+    </article>
+  }
+</div>

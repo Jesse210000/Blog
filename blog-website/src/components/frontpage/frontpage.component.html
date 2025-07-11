@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <section class="hero">
   <div class="intro">
     <h1>
@@ -16,26 +17,5 @@
 </section>
 
 <section class="featured">
-  <div class="header">
-    <h2>Featured Articles</h2>
-    <a href="/blog" class="view-all">View all →</a>
-  </div>
-
-  <div class="articles">
-    @for (post of blogs$ | async; track post.slug) {
-      <article class="card">
-        <img [src]="post.imageUrl || 'assets/placeholder.jpg'" alt="{{ post.title }}" />
-        <div class="meta">
-          <span class="date">{{ post.date }}</span>
-          <span class="read-time">{{ post.readTime || '5 min read' }}</span>
-        </div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.summary || (post.content | slice:0:100) + '...' }}</p>
-        <div class="tags">
-            <span class="tag">tag</span>
-
-        </div>
-      </article>
-    }
-  </div>
+  <app-article-card-grid [blogs$]="blogs$"></app-article-card-grid>
 </section>

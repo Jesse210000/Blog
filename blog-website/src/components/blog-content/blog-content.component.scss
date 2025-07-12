@@ -1,0 +1,144 @@
+
+.blog-post {
+  max-width: 860px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #111;
+  line-height: 1.8;
+
+  a {
+    color: #f97316;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .blog-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .blog-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 2rem 0 1rem;
+      color: rgba(255, 255, 255, 0.877);
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      color: #a1a1aa;
+      font-size: 0.9rem;
+
+      .dot {
+        font-weight: bold;
+      }
+
+      i {
+        vertical-align: middle;
+        margin-right: 0.25rem;
+      }
+    }
+
+    .cover-image {
+      margin-top: 2rem;
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .blog-body {
+    margin-top: 2.5rem;
+    font-size: 1.05rem;
+    color: #e4e4e7;
+
+    .content {
+      h1, h2, h3 {
+        font-weight: 700;
+        margin: 2rem 0 1rem;
+        color: #fafafa;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        margin: 1.5rem 0;
+      }
+
+      ul, ol {
+        margin: 1.5rem 0 1.5rem 2rem;
+        padding-left: 1rem;
+      }
+
+      blockquote {
+        border-left: 4px solid #f97316;
+        padding-left: 1rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: #d4d4d8;
+      }
+
+      img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+    }
+  }
+
+  .blog-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #27272a;
+
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .tag {
+        background-color: #27272a;
+        color: #f97316;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.85rem;
+        border-radius: 999px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .not-found {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #999;
+    padding: 4rem 0;
+  }
+}

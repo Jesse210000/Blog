@@ -1,9 +1,11 @@
 <nav class="navbar">
   <div class="logo">B <span>Blog</span></div>
   <ul class="links">
-    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/blog">Blog</a></li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
+    <li><a routerLink="/" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">Etusivu</a></li>
+    <li><a routerLinkActive="active" routerLink="/blog">Blogit</a></li>
+    <li><a routerLinkActive="active" routerLink="/about">Ttietoa minusta</a></li>
+    <li><a routerLinkActive="active" routerLink="/cv">Ansioluettelo</a></li>
+    <li><a routerLinkActive="active" routerLink="/contact">Ota yhteyttä</a></li>
+
   </ul>
 </nav>

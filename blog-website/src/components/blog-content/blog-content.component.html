@@ -1,0 +1,27 @@
+<section class="blog-post">
+  <ng-container *ngIf="blogPost() as post; else notFound">
+    <header class="blog-header">
+      <h1 class="blog-title">{{ post.title }}</h1>
+      <div class="blog-meta">
+        <span>{{ post.createdAt | date: 'longDate' }}</span>
+        <span class="dot">•</span>
+        <span>{{ (post.characterCount / 1000) | number: '1.0-0' }} min read</span>
+      </div>
+      <img *ngIf="post.imageUrl" [src]="post.imageUrl" [alt]="post.title" class="cover-image" />
+    </header>
+
+    <article class="blog-body">
+      <p class="content" [innerHTML]="post.content"></p>
+    </article>
+
+    <footer *ngIf="post.tags?.length" class="blog-footer">
+      <h4>Tagit:</h4>
+      <div class="tag-list">
+        <span class="tag" *ngFor="let tag of post.tags">{{ tag }}</span>
+      </div>
+    </footer>
+  </ng-container>
+  <ng-template #notFound>
+    <p class="not-found">Artikkelia ei löytynyt.</p>
+  </ng-template>
+</section>

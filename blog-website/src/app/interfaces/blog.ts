@@ -1,9 +1,10 @@
 export interface IBlogPost {
-  summary: any;
-  readTime: any;
-  title: string;
-  date: string;
+  id: number
   slug: string;
-  content: string,
-  imageUrl: string | null
+  title: string;
+  content: string;
+  imageUrl: string | null;
+  characterCount: number;
+  createdAt: string;
+  tags: string[];
 }

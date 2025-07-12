@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { IBlogPost } from '../app/interfaces/blog';
 
 @Injectable({ providedIn: 'root' })
@@ -9,7 +9,12 @@ export class BlogService {
 
   constructor(private http: HttpClient) {}
 
-  getAllPosts(): Observable<IBlogPost[]> {
-    return this.http.get<IBlogPost[]>(this.apiUrl);
+  getAllPostsSignal() {
+    return toSignal(this.http.get<IBlogPost[]>(this.apiUrl), { initialValue: [] });
   }
+
+  getAPostSignalById(blogId: string): Signal<IBlogPost | undefined> {
+    return toSignal(this.http.get<IBlogPost>(`${this.apiUrl}/${blogId}`));
+  }
+
 }

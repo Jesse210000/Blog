@@ -1,1 +1,17 @@
-<p>blog works!</p>
+<section class="blog-page">
+  <h1 class="title">Kaikki blogit</h1>
+  <p class="description">
+    Täältä löydät kaikki blogini uusimmasta vanhimpaan.
+  </p>
+
+  <div class="search-filter">
+    <input
+      type="text"
+      placeholder="Etsi blogeja..."
+      (input)="onSearch($event)"
+      class="search-input"
+    />
+  </div>
+
+  <app-article-card-grid [blogs]="filteredBlogs" />
+</section>

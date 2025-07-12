@@ -1,21 +1,19 @@
-<app-navbar></app-navbar>
 <section class="hero">
   <div class="intro">
     <h1>
-      Welcome to My <span class="gradient">Digital Garden</span>
+      Tervetuloa <span class="gradient">verkkosivuilleni!</span>
     </h1>
     <p>
-      A place where I share thoughts about web development, design, and the
-      ever-evolving tech landscape. Join me on this journey of continuous
-      learning and growth.
+      Löydät täältä sivustolta ansioluetteloni, tietoa minusta ja blogikokoelmani.
     </p>
     <div class="actions">
-      <button class="btn primary">Explore Articles</button>
-      <button class="btn secondary">Learn About Me</button>
+      <button class="btn primary">Tietoa minusta</button>
+      <button class="btn secondary">Ansioluetteloni</button>
+      <button class="btn secondary">Blogikokoelmani</button>
     </div>
   </div>
 </section>
 
 <section class="featured">
-  <app-article-card-grid [blogs$]="blogs$"></app-article-card-grid>
+  <app-article-card-grid [blogs]="blogs"></app-article-card-grid>
 </section>

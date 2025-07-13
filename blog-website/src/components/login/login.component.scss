@@ -1,0 +1,29 @@
+.login-form {
+  max-width: 300px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #111;
+  color: #eee;
+
+  input {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #222;
+    color: #fff;
+  }
+
+  button {
+    padding: 0.5rem;
+    background: #ff6600;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}

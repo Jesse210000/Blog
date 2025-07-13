@@ -1,13 +1,16 @@
 import { Router } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from  'jsonwebtoken';
+import 'dotenv/config';
 
 const router = Router();
 
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH!;
 const JWT_SECRET = process.env.JWT_SECRET!;
 
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
+  console.log(ADMIN_PASSWORD_HASH)
+  console.log(JWT_SECRET)
   const { password } = req.body;
 
   if (!password) return res.status(400).json({ error: 'Password required' });

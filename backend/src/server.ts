@@ -2,6 +2,8 @@ import express from 'express';
 import pg from 'pg';
 import cors from 'cors';
 import blogRoutes from './routes/blog';
+import loginRoute from './routes/auth';
+import { requireAdmin } from './auth/middleware';
 import 'dotenv/config';
 
 const app = express();
@@ -18,7 +20,9 @@ const pool = new pg.Pool({
 
 app.set('db', pool);
 
-app.use('/api/blogs', blogRoutes);
+app.use('/api/login', loginRoute);
+
+app.use('/api/blogs', requireAdmin, blogRoutes);
 
 app.listen(3000, () => {
   console.log('Backend running at http://localhost:3000');
